@@ -5,7 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f00"
-    tools:context=".ui.gallery.GalleryFragment">
+    tools:context=".ui.v1.defaultflow2.FlowScreen2Fragment">
+
+    <Button
+        android:id="@+id/btnGotoBegin"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="16dp"
+        android:text="Voltar ao Inicio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_gallery"

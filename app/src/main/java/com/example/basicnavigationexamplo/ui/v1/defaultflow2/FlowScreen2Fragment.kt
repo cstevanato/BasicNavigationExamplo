@@ -1,4 +1,4 @@
-package com.example.basicnavigationexamplo.ui.gallery
+package com.example.basicnavigationexamplo.ui.v1.defaultflow2
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.basicnavigationexamplo.databinding.FragmentGalleryBinding
+import androidx.navigation.findNavController
+import com.example.basicnavigationexamplo.databinding.FragmentFlowScreen2Binding
 
-class GalleryFragment : Fragment() {
+class FlowScreen2Fragment : Fragment() {
 
-    private var _binding: FragmentGalleryBinding? = null
+    private var _binding: FragmentFlowScreen2Binding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,15 +24,22 @@ class GalleryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
+            ViewModelProvider(this).get(FlowScreen2ViewModel::class.java)
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentFlowScreen2Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textGallery
         galleryViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+
+        binding.btnGotoBegin.setOnClickListener {
+            val directions = FlowScreen2FragmentDirections.actionNavGalleryToNavHome()
+            it.findNavController().navigate(directions = directions)
+        }
+
         return root
     }
 

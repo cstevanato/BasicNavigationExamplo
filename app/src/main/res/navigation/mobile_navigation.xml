@@ -24,20 +24,28 @@
 
     <fragment
         android:id="@+id/nav_home_detail"
-        android:name="com.example.basicnavigationexamplo.ui.details.HomeDatailsFragment"
+        android:name="com.example.basicnavigationexamplo.ui.v1.defaultflow1.FlowScreen1Fragment"
         android:label="@string/menu_detail"
-        tools:layout="@layout/fragment_home_datails" >
+        tools:layout="@layout/fragment_flow_screen_1" >
         <argument android:name="id"
             app:argType="integer"
             android:defaultValue="10"/>
+        <action
+            android:id="@+id/action_nav_home_detail_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
     </fragment>
 
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.basicnavigationexamplo.ui.gallery.GalleryFragment"
+        android:name="com.example.basicnavigationexamplo.ui.v1.defaultflow2.FlowScreen2Fragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_flow_screen_2" >
+        <action
+            android:id="@+id/action_nav_gallery_to_nav_home"
+            app:popUpTo="@+id/nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
